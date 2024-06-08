@@ -216,16 +216,18 @@
 
             // check if the question cell has already been answered
             if (questionCell.classList.contains('answered')) {
-                return; // 
+                return;
             }
 
-            
             document.getElementById('question').innerText = questionData.question;
             document.getElementById('questionBox').style.display = 'block';
             document.getElementById('result').innerText = '';
 
             questionCell.classList.add('answered');
             questionCell.style.backgroundColor = 'red';
+
+            // Automatically focus on the answer input textbox
+            document.getElementById('answer').focus();
         }
 
         function checkAnswer() {
@@ -260,5 +262,6 @@
     </script>
 </body>
 </html>
+t
 
            
