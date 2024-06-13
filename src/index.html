@@ -88,6 +88,21 @@
             background-color: red !important;
             cursor: default;
         }
+        .end-panel {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        .end-panel h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .end-panel button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +148,11 @@
     </div>
 
     <div id="result"></div>
+
+    <div class="end-panel" id="end-panel">
+        <h1>Thanks for playing!</h1>
+        <button onclick="restart()">Restart</button>
+    </div>
 
     <script>
         const questions = {
@@ -258,10 +278,26 @@
             // Hide the question box
             document.getElementById('questionBox').style.display = 'none';
             document.getElementById('answer').value = '';
+
+            // Check if all questions are answered
+            checkAllAnswered();
+        }
+
+        function checkAllAnswered() {
+            const allCells = document.querySelectorAll('td');
+            const allAnswered = Array.from(allCells).every(cell => cell.classList.contains('answered'));
+
+            if (allAnswered) {
+                document.querySelector('table').style.display = 'none';
+                document.querySelector('#score').style.display = 'none';
+                document.querySelector('#result').style.display = 'none';
+                document.querySelector('#end-panel').style.display = 'block';
+            }
+        }
+
+        function restart() {
+            window.location.reload();
         }
     </script>
 </body>
 </html>
-t
-
-           
