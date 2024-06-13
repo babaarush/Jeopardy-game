@@ -103,6 +103,9 @@
             font-size: 18px;
             cursor: pointer;
         }
+        .end-panel p {
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -151,6 +154,7 @@
 
     <div class="end-panel" id="end-panel">
         <h1>Thanks for playing!</h1>
+        <p id="final-score"></p>
         <button onclick="restart()">Restart</button>
     </div>
 
@@ -292,6 +296,9 @@
                 document.querySelector('#score').style.display = 'none';
                 document.querySelector('#result').style.display = 'none';
                 document.querySelector('#end-panel').style.display = 'block';
+
+                // Display final score on the end panel
+                document.getElementById('final-score').innerText = 'Your final score was: ' + score;
             }
         }
 
