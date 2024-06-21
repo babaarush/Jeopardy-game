@@ -231,8 +231,14 @@
         let currentCategory = '';
         let currentPoints = 0;
         let score = 0;
+        let questionDisplayed = false;
 
         function showQuestion(category, points) {
+            if (questionDisplayed) {
+                alert("Please answer the current question before moving on.");
+                return;
+            }
+
             currentCategory = category;
             currentPoints = points;
             const questionData = questions[category][points];
@@ -252,6 +258,8 @@
 
             // Automatically focus on the answer input textbox
             document.getElementById('answer').focus();
+
+            questionDisplayed = true;
         }
 
         function checkAnswer() {
@@ -283,6 +291,9 @@
             document.getElementById('questionBox').style.display = 'none';
             document.getElementById('answer').value = '';
 
+            // Mark question as answered
+            questionDisplayed = false;
+
             // Check if all questions are answered
             checkAllAnswered();
         }
@@ -298,7 +309,7 @@
                 document.querySelector('#end-panel').style.display = 'block';
 
                 // Display final score on the end panel
-                document.getElementById('final-score').innerText = 'Your final score was: ' + score;
+                document.getElementById('final-score').innerText = 'Your final score is: ' + score;
             }
         }
 
