@@ -8,15 +8,15 @@
     <style>
         body {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            background: #000000; /* Black background */
-            color: #FFFFFF; /* White text */
+            background: #000000;
+            color: #FFFFFF;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         h1 {
-            background-color: #333333; /* Dark gray background */
-            color: #FFFFFF; /* White text */
+            background-color: #333333;
+            color: #FFFFFF;
             padding: 20px;
             margin: 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -28,19 +28,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            border: 2px solid #FFFFFF; /* White border */
+            border: 2px solid #FFFFFF;
             padding: 20px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
         }
         th {
-            background-color: #555555; /* Medium gray background */
+            background-color: #555555;
         }
         td {
-            background-color: #777777; /* Lighter gray background */
+            background-color: #777777;
         }
         td:hover {
-            background-color: #555555; /* Medium gray background */
+            background-color: #555555;
         }
         #questionBox {
             margin: 20px auto;
@@ -60,28 +60,27 @@
             font-size: 1em;
             width: 80%;
             margin-bottom: 10px;
-            background: #333333; /* Dark gray background */
-            color: #FFFFFF; /* White text */
-            border: 1px solid #FFFFFF; /* White border */
+            background: #333333;
+            color: #FFFFFF;
+            border: 1px solid #FFFFFF;
         }
         button {
             padding: 10px 20px;
             font-size: 1em;
-            background-color: #555555; /* Medium gray background */
-            color: #FFFFFF; /* White text */
+            background-color: #555555;
+            color: #FFFFFF;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #777777; /* Lighter gray background */
+            background-color: #777777;
         }
-        #score {
+        #score, #result {
             font-size: 1.2em;
             margin: 20px 0;
         }
         #result {
-            font-size: 1.2em;
             margin-top: 10px;
         }
         .answered {
@@ -242,9 +241,8 @@
             currentCategory = category;
             currentPoints = points;
             const questionData = questions[category][points];
-            const questionCell = event.target; // get the clicked question cell
+            const questionCell = event.target;
 
-            // check if the question cell has already been answered
             if (questionCell.classList.contains('answered')) {
                 return;
             }
@@ -256,7 +254,6 @@
             questionCell.classList.add('answered');
             questionCell.style.backgroundColor = 'red';
 
-            // Automatically focus on the answer input textbox
             document.getElementById('answer').focus();
 
             questionDisplayed = true;
@@ -269,32 +266,23 @@
 
             questionCell.classList.add('answered');
             questionCell.style.backgroundColor = 'red';
-
-            // Remove click event listener from the answered question cell
             questionCell.onclick = null;
 
-            // Check if the answer is correct
             if (userAnswer === correctAnswer) {
                 score += currentPoints;
                 document.getElementById('result').innerText = 'Correct!';
                 document.getElementById('result').style.color = 'green';
             } else {
                 score -= currentPoints;
-                document.getElementById('result').innerText = 'Incorrect! The correct answer is: ' + questions[currentCategory][currentPoints].answer;
+                document.getElementById('result').innerText = `Incorrect! The correct answer is: ${questions[currentCategory][currentPoints].answer}`;
                 document.getElementById('result').style.color = 'red';
             }
 
-            // Update score display
             document.getElementById('score').innerText = 'Score: ' + score;
-
-            // Hide the question box
             document.getElementById('questionBox').style.display = 'none';
             document.getElementById('answer').value = '';
 
-            // Mark question as answered
             questionDisplayed = false;
-
-            // Check if all questions are answered
             checkAllAnswered();
         }
 
@@ -308,7 +296,6 @@
                 document.querySelector('#result').style.display = 'none';
                 document.querySelector('#end-panel').style.display = 'block';
 
-                // Display final score on the end panel
                 document.getElementById('final-score').innerText = 'Your final score is: ' + score;
             }
         }
