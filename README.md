@@ -1,7 +1,7 @@
 # **Cell Masters Jeopardy - README**
 
 # **Overview📝**
-Cell Masters Jeopardy is a web-based interactive quiz game inspired by the classic game show "Jeopardy!" The game focuses on testing knowledge related to cellular biology. Players answer questions in different categories and score points based on their answers.
+Cell Masters Jeopardy is a web-based interactive quiz game inspired by the classic game show "Jeopardy!" The game focuses on testing knowledge related to cellular biology. Players answer questions in different categories and can score points based on their answers.
 
 # **Features🔍**
 + **Three Categories:** Players can choose from three different categories related to cell biology: "Functions," "Fill in the Blanks," and "Definitions."
