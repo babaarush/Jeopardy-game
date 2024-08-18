@@ -105,6 +105,14 @@
         .end-panel p {
             font-size: 1.2em;
         }
+        .end-panel .feedback {
+            margin-top: 20px;
+        }
+        .end-panel .feedback a {
+            color: #FFFFFF;
+            text-decoration: underline;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -155,6 +163,10 @@
         <h1>Thanks for playing!</h1>
         <p id="final-score"></p>
         <button onclick="restart()">Restart</button>
+        <div class="feedback">
+            <p style="margin-top:100px; font-size:medium;">I'd appreciate your feedback!</p>
+            <a href="https://docs.google.com/forms/d/1xDHCRSrtKQ_2eR_6ss8v85hcZxzERiOQKg8eXt9zmxk/edit" target="_blank">Give feedback</a>
+        </div>
     </div>
 
     <script>
@@ -303,6 +315,7 @@
         function restart() {
             window.location.reload();
         }
+
     </script>
 </body>
 </html>
