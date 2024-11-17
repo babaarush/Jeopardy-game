@@ -8,7 +8,7 @@ Cell Masters Jeopardy is a web-based interactive quiz game inspired by the class
   
 + **Score Point System:** Different amounts of points are correlated to different questions. Points are tracked and can be added or deducted based on the correctness of the answers.
   
-+ **Interactive Gameplay:** Clickable cells reveal questions. Players input their answers, and the game provides immediate feedback.
++ **Interactive Gameplay:** Clickable cells reveal questions. Players input their answers, and the game provides immediate feedback. All questions are required to be answered. 
   
 + **End Game Summary:** Once all questions have been answered, the website displays an end page with a restart button and the total score.
   
